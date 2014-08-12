@@ -1,4 +1,4 @@
-cvtungguljati
+CV Tunggul Jati
 =============
 
 Skripsi gue | E-commerce
