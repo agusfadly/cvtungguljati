@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteRule ^produk/kategori-(.*)$ 		index.php?pg=kategori&seo=$1 [L]
+RewriteRule ^produk/detail-(.*)$ 		index.php?pg=produk&seo=$1 [L]
+RewriteRule ^cari-(.*)?(.*)$ 			index.php?pg=cari&seo=$1&q=$2 [L]
+
+RewriteRule ^cart/tambah-(.*)$ 			index.php?pg=cart&action=tambah&seo=$1 [L]
+RewriteRule ^cart$ 						index.php?pg=cart [L]
+
+Options All -Indexes

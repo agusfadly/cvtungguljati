@@ -1,0 +1,4 @@
+*.html
+*.txt
+inc/config.php
+__backup/
