@@ -73,3 +73,10 @@ function show_404()
 	echo '<h1>Error 404</h1>';
 	echo '<p>URL tidak ditemukan.</p>';
 }
+
+// SECURITY FUNCTION 
+function antiinjection($data)
+{
+	$filter_sql = mysql_real_escape_string(stripslashes(strip_tags(htmlspecialchars($data,ENT_QUOTES))));
+	return $filter_sql;
+}

@@ -1,0 +1,15 @@
+body {
+	font-size: 1.0em;
+}
+h2 {
+	font-size: 1.4em;
+}
+th, td {
+	font-size:14px;
+}
+.error {
+	font-size: 12px;
+	color: white; 
+	background: red;
+	padding: 3px;
+}
