@@ -35,12 +35,11 @@ if ($_POST)
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 	<title>::..Login First..::</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/login.css" />
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" href="css/iecss.css" />
 	<![endif]-->
-	<script type="text/javascript" src="js/boxOver.js"></script>
 	<script type="text/javascript" src="js/validateLogin.js"></script>
 </head>
 <body>

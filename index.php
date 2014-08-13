@@ -15,11 +15,12 @@ include 'inc/redirect.php';
 	<body>
 		<div id="wrapper">
 			<div id="inner">
-				 <div id="header">
+				<div id="header">
 					<h1><img src="<?php echo BASE_URL; ?>images/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
 					<div id="nav"> <a href="<?php echo BASE_URL; ?>">HOME</a> | <a href="">view cart</a> | <a href="">help</a> </div>
       <!-- end nav -->
-      <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_2.jpg" width="745" height="48" alt="" /></a> </div>
+      <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_2.jpg" width="745" height="48" alt="" /></a> 			
+				</div>
 			<!-- end header -->
 			<dl id="browse">
 				<dt>Kategori Produk</dt>
