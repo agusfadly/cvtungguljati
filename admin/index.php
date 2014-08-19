@@ -13,9 +13,9 @@ if ($_POST)
 	$username	= antiinjection($_POST['username']);
 	$pass     	= antiinjection(md5($_POST['password']));
 
-	$login	= mysql_query("SELECT * FROM admin WHERE username='$username' AND password='$pass'");
-	$ketemu	= mysql_num_rows($login);
-	$r		= mysql_fetch_array($login);
+	$login		= mysql_query("SELECT * FROM admin WHERE username='$username' AND password='$pass'");
+	$ketemu		= mysql_num_rows($login);
+	$r			= mysql_fetch_array($login);
 
 	if ($ketemu > 0)
 	{
@@ -46,8 +46,7 @@ if ($_POST)
 	<div id="main_container">
 		<div class="top_bar"></div>
 		<div class="login_container" align="center">
-			<div class="top_divider">
-				<img src="images/header_divider.png" alt="" title="" width="1" height="164" />
+			<div class="top_divider" style="height:164px;">
 			</div>
 			<div class="title"><h2>Login</h2></div>
 			<form name="form" method="POST" action="" onSubmit="return validateForm()">

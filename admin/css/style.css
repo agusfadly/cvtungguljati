@@ -279,20 +279,3 @@ h3 {
 	top: 0px;
 	padding: 8px 0 5px 0;
 }
-
-#list {
-	width:inherit;
-	border: 1px #03C solid;
-}
-
-#list th{
-	background:#09C;
-}
-
-#list td .even {
-	background:#0CF;
-}
-
-#list tr:hover {
-	background:#3FC;
-}

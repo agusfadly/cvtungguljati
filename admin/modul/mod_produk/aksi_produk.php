@@ -9,9 +9,10 @@ $module=$_GET[module];
 $act=$_GET[act];
 
 // Hapus produk
-if ($module=='produk' AND $act=='hapus'){
-  mysql_query("DELETE FROM produk WHERE id_produk='$_GET[id]'");
-  header('location:../../media.php?module='.$module);
+if ($module=='produk' AND $act=='hapus')
+{
+	mysql_query("DELETE FROM produk WHERE id_produk='$_GET[id]'");
+	header('location:../../media.php?module='.$module);
 }
 
 // Input produk
@@ -160,4 +161,3 @@ elseif ($module=='produk' AND $act=='update'){
   }
   header('location:../../media.php?lokasi='.$nama_file_unik.'&module='.$module);
 }
-?>

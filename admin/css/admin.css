@@ -1,0 +1,20 @@
+h1 {
+	font-size: 24px;
+}
+
+#list {
+	width:100%;
+	border: 1px #03C solid;
+}
+
+#list th{
+	background:#09C;
+}
+
+#list td .even {
+	background:#0CF;
+}
+
+#list tr:hover {
+	background:#3FC;
+}
