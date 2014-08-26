@@ -17,9 +17,17 @@ else :
 		<p><?php echo $row['deskripsi']; ?></p>
 		<p><b>Stok:</b> <?php echo $row['stok'].' '.$row['satuan']; ?></p>
 		<p><b>Berat:</b> <?php echo $row['berat']; ?> kg</p>
-		<p><b>Ongkos kirim:</b> Rp <?php echo indo_uang($row['ongkir']); ?> /kg</p>
-		<p class="readmore"><a href="<?php echo BASE_URL.'cart/tambah-'.$row['seo']; ?>">BELI <b>PRODUK</b></a></p>
+		<p class="readmore"><a href="<?php echo BASE_URL.'cart/tambah-'.$row['seo']; ?>" onclick="return confirmBeli('<?php echo $row['nama_produk']; ?>')">BELI <b>PRODUK</b></a></p>
 		<div class="clear"></div>
 	</div>
 	<?php
 endif;
+?>
+<script>
+function confirmBeli(produk) {
+	var msg = confirm('Tambahkan '+produk+' ke keranjang belanja?');
+	if (msg === false)
+		return false;
+	return true;
+}
+</script>

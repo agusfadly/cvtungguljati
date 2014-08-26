@@ -6,5 +6,13 @@ RewriteRule ^cari-(.*)?(.*)$ 			index.php?pg=cari&seo=$1&q=$2 [L]
 
 RewriteRule ^cart/tambah-(.*)$ 			index.php?pg=cart&action=tambah&seo=$1 [L]
 RewriteRule ^cart$ 						index.php?pg=cart [L]
+RewriteRule ^checkout$ 					index.php?pg=checkout [L]
+
+RewriteRule ^member$ 					index.php?pg=member [L]
+RewriteRule ^member/register$			index.php?pg=member&action=register [L]
+RewriteRule ^member/login$ 				index.php?pg=member&action=login [L]
+RewriteRule ^member/logout$ 			index.php?pg=member&action=logout [L]
+RewriteRule ^member/edit$ 				index.php?pg=member&action=edit [L]
+RewriteRule ^member/transaksi$			index.php?pg=member&action=transaksi [L]
 
 Options All -Indexes

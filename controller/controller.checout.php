@@ -1,5 +1,5 @@
 <?php
-include 'inc/function/fungsi_produk.php';
+
 $action = isset($_GET['action']) ? $_GET['action'] : 'default';
 
 if ($action == 'default')

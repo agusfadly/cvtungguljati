@@ -2,10 +2,10 @@
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Inang: localhost
--- Waktu pembuatan: 18 Jul 2014 pada 13.24
--- Versi Server: 5.5.24-log
--- Versi PHP: 5.4.3
+-- Host: localhost
+-- Generation Time: Aug 23, 2014 at 06:45 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `skripsi_agus`
+-- Database: `skripsi_agus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
@@ -38,17 +38,17 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`, `nama_lengkap`, `email`, `no_telp`, `level`, `blokir`) VALUES
-('admin', 'e10adc3949ba59abbe56e057f20f883e', 'Seto El Kahfi', 'admin@nanocomputercorner.com', '08238923848', 'admin', 'N'),
-('user', 'ee11cbb19052e40b07aac0ca060c23ee', 'User Biasa', 'userbiasa@setoelkahfi.com', 'xxxxx', 'user', 'N');
+('admin', 'e10adc3949ba59abbe56e057f20f883e', 'Agus Paul', 'admin@cvtunguljati.com', '08238923848', 'admin', 'N'),
+('user', 'ee11cbb19052e40b07aac0ca060c23ee', 'User Biasa', 'userbiasa@cvtunguljati.com', 'xxxxx', 'user', 'N');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `seo`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `seo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kontak`
+-- Table structure for table `kontak`
 --
 
 CREATE TABLE IF NOT EXISTS `kontak` (
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `kontak` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=9 ;
 
 --
--- Dumping data untuk tabel `kontak`
+-- Dumping data for table `kontak`
 --
 
 INSERT INTO `kontak` (`id_kontak`, `nama`, `email`, `subjek`, `pesan`, `tanggal`) VALUES
@@ -106,7 +106,7 @@ INSERT INTO `kontak` (`id_kontak`, `nama`, `email`, `subjek`, `pesan`, `tanggal`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kota`
+-- Table structure for table `kota`
 --
 
 CREATE TABLE IF NOT EXISTS `kota` (
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `kota` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data untuk tabel `kota`
+-- Dumping data for table `kota`
 --
 
 INSERT INTO `kota` (`id_kota`, `nama_kota`, `ongkos_kirim`) VALUES
@@ -136,7 +136,7 @@ INSERT INTO `kota` (`id_kota`, `nama_kota`, `ongkos_kirim`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `modul`
+-- Table structure for table `modul`
 --
 
 CREATE TABLE IF NOT EXISTS `modul` (
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `modul` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=64 ;
 
 --
--- Dumping data untuk tabel `modul`
+-- Dumping data for table `modul`
 --
 
 INSERT INTO `modul` (`id_modul`, `nama_modul`, `link`, `status`, `aktif`, `urutan`) VALUES
@@ -168,7 +168,7 @@ INSERT INTO `modul` (`id_modul`, `nama_modul`, `link`, `status`, `aktif`, `uruta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
--- Dumping data untuk tabel `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id_orders`, `nama_customer`, `alamat_lengkap`, `telpon`, `email`, `status_order`, `jam_order`, `tgl_order`, `id_kota`) VALUES
@@ -207,7 +207,7 @@ INSERT INTO `orders` (`id_orders`, `nama_customer`, `alamat_lengkap`, `telpon`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders_detail`
+-- Table structure for table `orders_detail`
 --
 
 CREATE TABLE IF NOT EXISTS `orders_detail` (
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `orders_detail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `orders_detail`
+-- Dumping data for table `orders_detail`
 --
 
 INSERT INTO `orders_detail` (`id_orders`, `id_produk`, `jumlah`) VALUES
@@ -237,7 +237,7 @@ INSERT INTO `orders_detail` (`id_orders`, `id_produk`, `jumlah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders_temp`
+-- Table structure for table `orders_temp`
 --
 
 CREATE TABLE IF NOT EXISTS `orders_temp` (
@@ -251,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `orders_temp` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
--- Dumping data untuk tabel `orders_temp`
+-- Dumping data for table `orders_temp`
 --
 
 INSERT INTO `orders_temp` (`id_orders_temp`, `id_produk`, `id_session`, `jumlah`, `tgl_order_temp`, `jam_order_temp`) VALUES
@@ -261,7 +261,7 @@ INSERT INTO `orders_temp` (`id_orders_temp`, `id_produk`, `id_session`, `jumlah`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE IF NOT EXISTS `produk` (
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `produk` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `seo`, `deskripsi`, `berat`, `harga`, `ongkir`, `stok`, `tgl_masuk`, `gambar`, `satuan`) VALUES
@@ -302,7 +302,7 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `seo`, `deskrip
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `review`
+-- Table structure for table `review`
 --
 
 CREATE TABLE IF NOT EXISTS `review` (
@@ -320,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `review` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `review_produk`
+-- Table structure for table `review_produk`
 --
 
 CREATE TABLE IF NOT EXISTS `review_produk` (
@@ -338,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `review_produk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `vendor`
+-- Table structure for table `vendor`
 --
 
 CREATE TABLE IF NOT EXISTS `vendor` (
@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data untuk tabel `vendor`
+-- Dumping data for table `vendor`
 --
 
 INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `seo`) VALUES

@@ -20,3 +20,15 @@ elseif ($pg == 'cart')
 {
 	include 'controller/controller.cart.php';
 }
+elseif ($pg == 'member')
+{
+	include 'controller/controller.member.php';
+}
+elseif ($pg == 'checkout')
+{
+	include 'controller/controller.checkout.php';
+}
+else
+{
+	show_404();
+}

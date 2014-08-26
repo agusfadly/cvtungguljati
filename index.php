@@ -6,7 +6,7 @@ include 'inc/redirect.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Online Movie Store</title>
+		<title>CV Tunggul Jati</title>
 		<meta name="description" content="" />
 		<meta name="keyword" content="" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,12 +17,19 @@ include 'inc/redirect.php';
 			<div id="inner">
 				<div id="header">
 					<h1><img src="<?php echo BASE_URL; ?>images/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
-					<div id="nav"> <a href="<?php echo BASE_URL; ?>">HOME</a> | <a href="">view cart</a> | <a href="">help</a> </div>
+					<div id="nav"> <a href="<?php echo BASE_URL; ?>">HOME</a> | <a href="<?php echo BASE_URL; ?>cart">view cart</a> | <a href="<?php echo BASE_URL; ?>member">member</a> </div>
       <!-- end nav -->
       <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_2.jpg" width="745" height="48" alt="" /></a> 			
 				</div>
 			<!-- end header -->
 			<dl id="browse">
+				<?php if (isset($_SESSION['member_id'])) : ?> 
+					<dt>Member Area</dt>
+					<dd class="first"><a href="<?php echo BASE_URL.'member'; ?>">Profil</a></dd>
+					<dd><a href="<?php echo BASE_URL.'member/edit'; ?>">Edit</a></dd>
+					<dd><a href="<?php echo BASE_URL.'member/transaksi'; ?>">Transaksi</a></dd>
+					<dd><a href="<?php echo BASE_URL.'member/logout'; ?>">Logout</a></dd>
+				<?php endif; ?>
 				<dt>Kategori Produk</dt>
 				<?php echo render_menu(); ?>
 				<dt>Cari Per Kategori</dt>
