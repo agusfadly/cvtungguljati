@@ -22,8 +22,10 @@ function validateForm()
 // -->
 </script>
 <?php
-$aksi="modul/mod_kategori/aksi_kategori.php";
-switch($_GET['act']){
+$aksi 	= "modul/mod_kategori/aksi_kategori.php";
+$act 	= isset($_GET['act']) ? $_GET['act'] : '';
+switch ($act)
+{
   // Tampil Kategori
   default:
     echo "<div class='top_admin_box'><h2>Kategori</h2></DIV>
