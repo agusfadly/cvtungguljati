@@ -1,19 +1,17 @@
 <?php
-
 $edit = mysql_query("SELECT * FROM produk WHERE id_produk='$_GET[id]'");
 $r    = mysql_fetch_array($edit);
-
 echo "<div class='top_admin_box'><h2>Edit Produk</h2></div>
           <form method=POST enctype='multipart/form-data' action=$aksi?module=produk&act=update>
-          <input type=hidden name=id value=$r[id_produk]>
+          <input type=hidden name=id value='".$r['id_produk'].">
           <table>
-          <tr><td width=70>Nama Produk</td>     <td> : <input type=text name='nama_produk' size=60 value='$r[nama_produk]'></td></tr>
+          <tr><td width=70>Nama Produk</td>     <td> : <input type=text name='nama_produk' size=60 value='".$r['nama_produk']."'></td></tr>
           <tr><td>Kategori</td>  <td> : <select name='kategori'>";
  
           $tampil=mysql_query("SELECT * FROM kategori ORDER BY nama_kategori");
           while($w=mysql_fetch_array($tampil))
 		  {
-            if ($r[id_kategori]==$w[id_kategori]){
+            if ($r['id_kategori']==$w['id_kategori']){
               echo "<option value=$w[id_kategori] selected>$w[nama_kategori]</option>";
             }
             else{

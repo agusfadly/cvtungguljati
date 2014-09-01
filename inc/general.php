@@ -141,4 +141,3 @@ function seo_title($s)
     $s = strtolower(str_replace($c, '-', $s)); // Ganti spasi dengan tanda - dan ubah hurufnya menjadi kecil semua
     return $s;
 }
-echo 'tes';

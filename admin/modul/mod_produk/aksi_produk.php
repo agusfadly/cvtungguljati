@@ -1,12 +1,9 @@
 <?php
-session_start();
-include "../../../config/koneksi.php";
-include "../../../config/library.php";
-include "../../../config/fungsi_thumb.php";
-include "../../../config/fungsi_seo.php";
+include "../../../inc/config.php";
+include "../../../inc/general.php";
 
-$module=$_GET[module];
-$act=$_GET[act];
+$module	= $_GET[module];
+$act	= $_GET[act];
 
 // Hapus produk
 if ($module=='produk' AND $act=='hapus')
@@ -16,7 +13,8 @@ if ($module=='produk' AND $act=='hapus')
 }
 
 // Input produk
-elseif ($module=='produk' AND $act=='input'){
+elseif ($module=='produk' AND $act=='input')
+{
 	if ($_POST['nama_produk']=="") {
 		 header('location:../../media.php?module=produk&act=tambahproduk&f=nama');
 	}

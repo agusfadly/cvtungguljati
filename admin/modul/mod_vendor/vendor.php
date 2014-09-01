@@ -1,19 +1,21 @@
-<script LANGUAGE="JavaScript"> 
+<script> 
 <!-- 
 function confirmSubmit(ttt) {
-var msg;
-msg= "Anda yakin akan menghapus vendor " + ttt + "?";
-var agree=confirm(msg);
-if (agree)
-return true ;
-else
-return false ;
+	var msg;
+	msg= "Anda yakin akan menghapus vendor " + ttt + "?";
+	var agree=confirm(msg);
+	if (agree)
+		return true ;
+	else
+		return false ;
 }
 // -->
 </script>
 <?php
-$aksi="modul/mod_vendor/aksi_vendor.php";
-switch($_GET['act']){
+$aksi	= "modul/mod_vendor/aksi_vendor.php";
+$act	= isset($_GET['act']) ? $_GET['act'] : '';
+switch($act)
+{
   // Tampil vendor
   default:
     echo "<div class='top_admin_box'><h2>Vendor</h2></DIV>

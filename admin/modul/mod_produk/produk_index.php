@@ -10,7 +10,7 @@
 		<th>Aksi</th>
 	</tr>
 <?php
-		$p      = new Paging2;
+		$p      = new Paging;
 		$batas  = 10;
 		$posisi = $p->cariPosisi($batas);
 		$tampil = mysql_query("SELECT * FROM produk ORDER BY id_produk DESC LIMIT $posisi, $batas");
@@ -38,5 +38,17 @@
 		$jmldata 		= mysql_num_rows(mysql_query("SELECT * FROM produk"));
 		$jmlhalaman  	= $p->jumlahHalaman($jmldata, $batas);
 		$linkHalaman 	= $p->navHalaman($halaman, $jmlhalaman);
-
-		echo "<div id=paging>Hal: $linkHalaman</div><br>";
+		if ( $jmldata > $batas )
+			echo "<div id=paging>Hal: $linkHalaman</div><br>";
+?>
+<script> 
+function confirmSubmit(ttt,id) {
+	var msg;
+	msg = "Anda yakin akan menghapus produk " + ttt + " - ID = "+ id +"?";
+	var agree=confirm(msg);
+	if (agree)
+		return true ;
+	else
+		return false ;
+}
+</script>

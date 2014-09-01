@@ -1,6 +1,8 @@
 <?php
-$aksi="modul/mod_order/aksi_order.php";
-switch($_GET['act']){
+$aksi	= "modul/mod_order/aksi_order.php";
+$act	= isset($_GET['act']) ? $_GET['act'] : '';
+switch($act)
+{
   // Tampil Order
   default:
     echo "<div class='top_admin_box'><h2>Order</h2></div>

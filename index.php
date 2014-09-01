@@ -1,4 +1,8 @@
 <?php
+// DEVELOPMENT
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'inc/config.php';
 include 'inc/general.php';
 include 'inc/redirect.php';
@@ -17,7 +21,7 @@ include 'inc/redirect.php';
 			<div id="inner">
 				<div id="header">
 					<h1><img src="<?php echo BASE_URL; ?>images/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
-					<div id="nav"> <a href="<?php echo BASE_URL; ?>">HOME</a> | <a href="<?php echo BASE_URL; ?>cart">view cart</a> | <a href="<?php echo BASE_URL; ?>member">member</a> </div>
+					<div id="nav"> <a href="<?php echo BASE_URL; ?>">HOME</a> | <a href="<?php echo BASE_URL; ?>cart">keranjang belanja</a> | <a href="<?php echo BASE_URL; ?>member">member</a> </div>
       <!-- end nav -->
       <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>images/header_2.jpg" width="745" height="48" alt="" /></a> 			
 				</div>
