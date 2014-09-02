@@ -18,3 +18,11 @@ h1 {
 #list tr:hover {
 	background:#3FC;
 }
+span.error {
+	color: red;
+}
+span.success {
+	color: #fff;
+	background-color: green;
+	padding: 2px 5px 2px 5px;
+}
