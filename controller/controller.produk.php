@@ -12,7 +12,7 @@ else :
 	?>
 	<div class="detailbox">
 		<h3><?php echo $row['nama_produk']; ?></h3>
-		<img src="<?php echo BASE_URL; ?>images/<?php echo $row['gambar']; ?>" width="186" height="190" alt="photo 1"/>
+		<img src="<?php echo BASE_URL; ?>gambar_produk/<?php echo $row['gambar']; ?>" width="186" height="190" alt="photo 1"/>
 		<p><b>Harga:</b> Rp <b><?php echo indo_uang($row['harga']); ?></b></p>
 		<p><?php echo $row['deskripsi']; ?></p>
 		<p><b>Stok:</b> <?php echo $row['stok'].' '.$row['satuan']; ?></p>

@@ -9,7 +9,7 @@ while($row = mysql_fetch_assoc($Q)) :
 ?>
 	<div class="<?php echo $position; ?>">
 		<h3><?php echo $row['nama_produk']; ?></h3>
-		<img src="<?php echo BASE_URL; ?>images/<?php echo $row['gambar']; ?>" width="93" height="95" alt="photo 1" class="left" />
+		<img src="<?php echo BASE_URL; ?>gambar_produk/<?php echo $row['gambar']; ?>" width="93" height="95" alt="photo 1" class="left" />
 		<p><b>Harga:</b> Rp <b><?php echo indo_uang($row['harga']); ?></b></p>
 		<p><?php echo break_description($row['deskripsi'], 50); ?> ...</p>
 		<p><b>Stok:</b> <?php echo $row['stok'].' '.$row['satuan']; ?></p>
