@@ -15,4 +15,6 @@ RewriteRule ^member/logout$ 			index.php?pg=member&action=logout [L]
 RewriteRule ^member/edit$ 				index.php?pg=member&action=edit [L]
 RewriteRule ^member/transaksi$			index.php?pg=member&action=transaksi [L]
 
-Options All -Indexes
+RewriteRule ^hubungi-kami$				index.php?pg=hubungi-kami [L]
+RewriteRule ^tentang-kami$				index.php?pg=tentang-kami [L]
+RewriteRule ^cara-belanja$				index.php?pg=cara-belanja [L]

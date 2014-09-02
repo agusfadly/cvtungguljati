@@ -47,8 +47,8 @@ include 'inc/redirect.php';
 			</div>
 			<!-- end body -->
 			<div class="clear"></div>
-			<div id="footer"> Developed by <a href="http://twitter.com/agus">Agus</a> &nbsp;
-			  <div id="footnav"> <a href="<?php echo BASE_URL; ?>admin">Login</a> | <a href="<?php echo BASE_URL; ?>">Home</a> </div>
+			<div id="footer" style="text-align:left;"> Developed by <a href="http://twitter.com/agus">Agus</a> &nbsp;
+			  <div id="footnav"> <a href="<?php echo BASE_URL; ?>tentang-kami">Tentang Kami</a> | <a href="<?php echo BASE_URL; ?>cara-belanja">Cara Belanja</a> |  <a href="<?php echo BASE_URL.'hubungi-kami'; ?>">Hubungi Kami</a> | <a href="<?php echo BASE_URL; ?>admin">Login</a></div>
 			  <!-- end footnav -->
 			</div>
 			<!-- end footer -->
