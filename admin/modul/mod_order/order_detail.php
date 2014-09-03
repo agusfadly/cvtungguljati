@@ -18,7 +18,7 @@ if ($_POST)
 			$headers = "From: noreply@cvtungguljati.com\r\n";
 			$headers .= "Reply-to: noreply@cvtungguljati.com\r\n";
 			$headers .= "Content-type: text/html";
-			$mail_sent = mail($email, "Status Pemesanan #".$_POST['id']." - CV Tunggul Jati", $body_mail, $headers);
+			$mail_sent = mail($_POST['email'], "Status Pemesanan #".$_POST['id']." - CV Tunggul Jati", $body_mail, $headers);
 			$success = ($mail_sent) ? $success : 'Data pesanan berhasil diperbaharui namun sistem gagal mengirim email.';
 		}
 	}
@@ -51,6 +51,7 @@ foreach ($pilihan_status as $status)
 echo "<div class='top_admin_box'><h2>Detail Order</h2></div>
           <form method='POST' action=''>
           <input type='hidden' name='id' value=$r[id_orders]>
+          <input type='hidden' name='email' value=$r[email]>
           <table>
           <tr><td>No. Order</td>        <td> : $r[id_orders]</td></tr>
           <tr><td>Tgl. & Jam Order</td> <td> : $tanggal  $r[jam_order]</td></tr>
