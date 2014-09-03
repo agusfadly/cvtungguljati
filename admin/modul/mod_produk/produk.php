@@ -1,6 +1,7 @@
 <?php
 include "../inc/library/paging.php";
 include "../inc/function/fungsi_rupiah.php";
+include "../inc/function/fungsi_upload.php";
 $act 	= isset($_GET['act']) ? $_GET['act'] : null;
 $aksi 	= "modul/mod_produk/aksi_produk.php";
 switch ($act)

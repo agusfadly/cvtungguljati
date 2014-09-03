@@ -28,7 +28,7 @@
 					<td>'.$tanggal.'</td>
 					<td>
 						<a href="?module=produk&act=editproduk&id='.$r['id_produk'].'">Edit</a> | 
-						<a href="modul/mod_produk/aksi_produk.php?module=produk&act=hapus&id='.$r['id_produk'].'" onclick="return confirmSubmit(\''.$r['nama_produk'].'\',\''.$r['id_produk'].'\')">Hapus</a>
+						<a href="modul/mod_produk/aksi_produk.php?module=produk&act=hapus&id='.$r['id_produk'].'&gambar='.$r['gambar'].'" onclick="return confirmSubmit(\''.$r['nama_produk'].'\',\''.$r['id_produk'].'\')">Hapus</a>
 					</td>
 				</tr>';
 			$no++;
@@ -44,7 +44,7 @@
 <script> 
 function confirmSubmit(ttt,id) {
 	var msg;
-	msg = "Anda yakin akan menghapus produk " + ttt + " - ID = "+ id +"?";
+	msg = "Anda yakin akan menghapus produk " + ttt + "?";
 	var agree=confirm(msg);
 	if (agree)
 		return true ;

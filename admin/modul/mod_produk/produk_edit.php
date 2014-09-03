@@ -1,52 +1,140 @@
 <?php
-$edit = mysql_query("SELECT * FROM produk WHERE id_produk='$_GET[id]'");
-$r    = mysql_fetch_array($edit);
-echo "<div class='top_admin_box'><h2>Edit Produk</h2></div>
-          <form method=POST enctype='multipart/form-data' action=$aksi?module=produk&act=update>
-          <input type=hidden name=id value='".$r['id_produk'].">
-          <table>
-          <tr><td width=70>Nama Produk</td>     <td> : <input type=text name='nama_produk' size=60 value='".$r['nama_produk']."'></td></tr>
-          <tr><td>Kategori</td>  <td> : <select name='kategori'>";
- 
-          $tampil=mysql_query("SELECT * FROM kategori ORDER BY nama_kategori");
-          while($w=mysql_fetch_array($tampil))
-		  {
-            if ($r['id_kategori']==$w['id_kategori']){
-              echo "<option value=$w[id_kategori] selected>$w[nama_kategori]</option>";
-            }
-            else{
-              echo "<option value=$w[id_kategori]>$w[nama_kategori]</option>";
-            }
-          }
-    echo "</select></td></tr>
-		 <tr><td>Vendor</td>  <td> : <select name='vendor'>";
- 
-          $tampil2=mysql_query("SELECT * FROM vendor ORDER BY nama_vendor");
-			
-          while($w2=mysql_fetch_array($tampil2)){
-            if ($r[id_vendor]==$w[id_vendor]){
-              echo "<option value=$w2[id_vendor] selected>$w2[nama_vendor]</option>";
-            }
-            else{
-              echo "<option value=$w2[id_vendor]>$w2[nama_vendor]</option>";
-            }
-          }
-    echo "</select></td></tr>		
-          <tr><td>Harga</td>     <td> : <input type=text name='harga' value=$r[harga] size=10>Harga Awal: <input type=text name='h_awal' value=$r[h_awal] size=10>Ongkir: <input type=text name='ongkir' value=$r[ongkir] size=8></td></tr>
-		   <tr><td>Dimensi(PxLxT)</td><td> : <input type=text name='dimensi' value=$r[dimensi] size=10>&nbsp;&nbsp;Berat :  <input type=text name='berat' value=$r[berat] size=4>*dalam Kg</td></tr>
-          <tr><td>Stok</td>     <td> : <input type=text name='stok' value=$r[stok] size=3>&nbsp;&nbsp;Promo : <select name='promo'>
-		  																					<option value='off' selected> Off </option>
-																							<option value='on' selected> On </option>
-																							</select>
-									&nbsp;&nbsp;Segera Hadir : <select name='soon'>
-		  																					<option value='off' selected> Off </option>
-																							<option value='on' selected> On </option>
-																							</select></td></tr>
-          <tr><td valign='top'>Deskripsi</td>   <td> <textarea name='deskripsi' style='width: 450px; height: 250px;'>$r[deskripsi]</textarea></td></tr>
-          <tr><td>Gambar</td>       <td> :  
-          <img src='../foto_produk/small_$r[gambar]'></td></tr>
-          <tr><td>Ganti Gbr</td>    <td> : <input type=file name='gambar' size=30> *)</td></tr>
-          <tr><td colspan=2>*) Apabila gambar tidak diubah, dikosongkan saja.</td></tr>
-          <tr><td colspan=2><input type=submit value=Update>
-                            <input type=button value=Batal onclick=self.history.back()></td></tr>
-         </table></form>";
+if ($_POST)
+{
+	$rror = false;
+	if ($_POST['nama_produk']=="")
+	{
+		$rror 			= true;
+		$_nama_produk 	= 'Nama produk harus diisi.';
+	}
+	if($_POST['harga']=="")
+	{
+		$rror 	= true;
+		$_harga = 'Harga produk harus diisi.';
+	}
+	elseif (!is_numeric($_POST['harga']))
+	{
+		$rror 	= true;
+		$_harga = 'Harga produk harus angka.';
+	}
+	if($_POST['stok']=="")
+	{
+		$rror 	= true;
+		$_stok	= 'Stok produk harus diisi.';
+	}
+	elseif (!is_numeric($_POST['stok']))
+	{
+		$rror 	= true;
+		$_stok 	= 'Stok produk harus angka.';
+	}
+	if($_POST['berat']!="" && !is_numeric($_POST['berat']))
+	{
+		$rror 	= true;
+		$_berat	= 'Berat produk harus dalam angka.';
+	}	
+	if ($_POST['deskripsi']=="")
+	{
+		$rror 			= true;
+		$_deskripsi 	= 'Deskripsi produk harus diisi.';
+	}
+	if (!$rror)
+	{ 
+		$produk_seo      = seo_title($_POST['nama_produk']);
+		
+		if ($_FILES['gambar']['name'] != '')
+		{			
+			$lokasi_file    = $_FILES['gambar']['tmp_name'];
+			$tipe_file      = $_FILES['gambar']['type'];
+			$nama_file      = $_FILES['gambar']['name'];
+			$acak           = rand(1,99);
+			$nama_file_unik = $acak.$nama_file;
+			UploadImage($nama_file_unik);
+			unlink($_POST['gambar']);
+			@unlink($_POST['gambar_small']);
+			mysql_query("UPDATE produk SET nama_produk = '$_POST[nama_produk]', seo='$produk_seo', id_kategori='$_POST[kategori]', harga=$_POST[harga], berat='$_POST[berat]', satuan = '$_POST[satuan]', stok='$_POST[stok]', deskripsi='$_POST[deskripsi]', tgl_masuk = CURRENT_DATE(), gambar = '$nama_file_unik' WHERE id_produk = '$_POST[id_produk]'") or die(mysql_error());
+		}
+		else
+		{
+			mysql_query("UPDATE produk SET nama_produk = '$_POST[nama_produk]', seo='$produk_seo', id_kategori='$_POST[kategori]', harga=$_POST[harga], berat='$_POST[berat]', satuan = '$_POST[satuan]', stok='$_POST[stok]', deskripsi='$_POST[deskripsi]', tgl_masuk = CURRENT_DATE() WHERE id_produk = '$_POST[id_produk]'") or die(mysql_error());
+		}
+		?>
+		<script>
+		alert('Data berhasil diperbarui.');
+		</script>
+		<?php
+	}
+}
+$Q	= mysql_query("SELECT * FROM produk WHERE id_produk='$_GET[id]'");
+$r  = mysql_fetch_assoc($Q);
+?>
+<div class='top_admin_box'>
+	<h2>Edit Produk</h2>
+</div>
+<form name="form" method='POST' action="" enctype='multipart/form-data'>
+    <table>
+        <tr>
+			<td width="70">Nama Produk</td>
+			<td> : <input type="text" name="nama_produk" size="60" value="<?php echo isset($_POST['nama_produk']) ? $_POST['nama_produk'] : $r['nama_produk']; ?>">
+				<input type="hidden" name="id_produk" value="<?php echo $r['id_produk']; ?>">
+				<?php echo (isset($_nama_produk)) ? '<br><span class="error">'.$_nama_produk.'</span>' : ''; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Kategori</td>
+			<td> : <select name='kategori'>
+				<?php
+				$tampil=mysql_query("SELECT * FROM kategori ORDER BY nama_kategori");
+				while($kategori=mysql_fetch_array($tampil))
+				{
+					$selected = $kategori['id_kategori'] == $r['id_kategori'] ? 'selected' : '';
+					echo "<option value='".$kategori['id_kategori']."' ".$selected.">".$kategori['nama_kategori']."</option>";
+				}
+				?>
+				</select> Pilih Kategori
+			</td>
+		</tr>
+        <tr>
+			<td>Harga</td>
+			<td> : <input type="text" name='harga' size="10" value="<?php echo isset($_POST['harga']) ? $_POST['harga'] : $r['harga'] ; ?>">
+			<?php echo (isset($_harga)) ? '<br><span class="error">'.$_harga.'</span>' : ''; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Berat</td>
+			<td> : <input type="text" name='berat' size="4" value="<?php echo isset($_POST['berat']) ? $_POST['berat'] : $r['berat']; ?>" /> *dalam Kg
+			<?php echo (isset($_berat)) ? '<br><span class="error">'.$_berat.'</span>' : ''; ?>
+			</td>
+		</tr>
+        <tr>
+			<td>Stok</td>
+			<td> : <input type="text" name='stok' size="3" value="<?php echo isset($_POST['stok']) ? $_POST['stok'] : $r['stok']; ?>">&nbsp;&nbsp;
+				Satuan : <select name='satuan'>
+		  		<?php
+					$satuan = array('unit','pcs','buah');
+					foreach ($satuan as $satuan)
+					{
+						$selected = $satuan == $r['satuan'] ? 'selected' : ''; 
+						echo '<option value="'.$satuan .'" '.$selected.'> '.$satuan .' </option>';
+					}
+					
+				?>
+					</select>
+			<?php echo (isset($_stok)) ? '<br><span class="error">'.$_stok.'</span>' : ''; ?>
+			</td>
+		</tr>
+        <tr>
+			<td valign='top'>Deskripsi</td>
+			<td valign="top"> <textarea name='deskripsi' style='width: 450px; height: 250px;'><?php echo isset($_POST['deskripsi']) ? $_POST['deskripsi'] : $r['deskripsi']; ?></textarea></td>
+		</tr>
+        <tr>
+			<td valign="top">Gambar</td>
+			<td valign="top"> : <img src="../gambar_produk/<?php echo $r['gambar']; ?>" width="200" height="150"><br/>
+				<input type="file" name='gambar' size="40"> <input type="hidden" name='gambar' value="../gambar_produk/<?php echo $r['gambar']; ?>" /> <input type="hidden" name='gambar_small' value="../gambar_produk/small_<?php echo $r['gambar']; ?>" /> 
+                                          <br>Biarkan kosong jika gambar tidak diganti
+										  <br>Tipe gambar harus JPG/JPEG dan ukuran lebar maks: 400 px				
+				<?php echo (isset($_gambar)) ? '<br><span class="error">'.$_gambar.'</span>' : ''; ?>
+			</td>
+		</tr>
+        <tr><td colspan=2><input type=submit value=Simpan>
+                            <input type=button value=Batal onclick=location='media.php?module=produk'></td></tr>
+          </table></form>";
