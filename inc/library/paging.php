@@ -36,7 +36,7 @@ class Paging {
 			}
 			else
 			{
-				$link_halaman .= "<a href=?module=produk&halaman=$i>$i</a> | ";
+				$link_halaman .= "<a href=?module=".$_GET['module']."&halaman=$i>$i</a> | ";
 			}
 			$link_halaman .= " ";
 		}
